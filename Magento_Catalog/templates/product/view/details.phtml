@@ -103,6 +103,7 @@
                     aria-hidden="<?= /* @noEscape */ ($tabId == 1) ? 'false' : 'true'; ?>"
                     role="tabpanel"
                 >
+                    <?= $tabId == 1 ? $this->getLayout()->createBlock("Magento\Catalog\Block\Product\View\Description")->setTemplate("JWC_Theme::product/view/youtube-embed.phtml")->toHtml() : '' // jwc?>
                     <?= /* @noEscape */ $html; ?>
                 </div>
                 <?php $tabId++; ?>

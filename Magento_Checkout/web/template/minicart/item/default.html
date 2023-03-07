@@ -35,21 +35,80 @@
                                 link
                                 link--invert
                                 minicart-product__link
+                                product-title-in-list
                             "
-                        ></a>
+                        ></a> <!-- jwc -->
                     </h3>
-                    <!-- ko ifnot: canApplyMsrp -->
-                        <div
-                            class="
-                                minicart-product__price
-                                margin-bottom-xs
+                    <!-- - jwc -->
+                    <div class="minicart-product__actions">
+                        <!-- ko if: is_visible_in_site_visibility -->
+                            <a
+                                data-bind="
+                                    attr: {
+                                        href: configure_url,
+                                        title: $t('Edit item'),
+                                        'aria-label': $t('Edit product in your shopping cart')
+                                    }
+                                "
+                                class="
+                                    button
+                                    button--icon
+                                    minicart-product__button
+                                "
+                                data-testid="edit-item-link"
+                            >
+                                <svg
+                                    class="
+                                        icon
+                                        button__icon
+                                        minicart-product__button-icon
+                                    "
+                                    role="presentation"
+                                    focusable="false"
+                                >
+                                    <use
+                                        data-bind="attr: { 'href': require.toUrl('images/icons-sprite.svg#edit') }"
+                                        href=''
+                                    ></use>
+                                </svg>
+                            </a>
+                        <!-- /ko -->
+    
+                        <a
+                            href="#"
+                            data-bind="
+                                attr: {
+                                    'data-cart-item': item_id,
+                                    title: $t('Remove item'),
+                                    'aria-label': $t('Remove this product from your shopping cart')
+                                }
                             "
+                            class="
+                                button
+                                button--icon
+                                minicart-product__button
+                                action
+                                delete
+                            "
+                            data-testid="delete-item-link"
                         >
-                            <!-- ko foreach: $parent.getRegion('priceSidebar') -->
-                                <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
-                            <!-- /ko -->
-                        </div>
-                    <!-- /ko -->
+                            <svg
+                                class="
+                                    icon
+                                    button__icon
+                                    minicart-product__button-icon
+                                "
+                                role="presentation"
+                                focusable="false"
+                            >
+                                <use
+                                    data-bind="attr: {'href': require.toUrl('images/icons-sprite.svg#remove')}"
+                                    href=''
+                                ></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- + jwc -->
                 </div>
                 <!-- ko if: options.length -->
                     <dl
@@ -196,74 +255,20 @@
                         </button>
                     </div>
                 <!-- /ko -->
-                <div class="minicart-product__actions">
-                    <!-- ko if: is_visible_in_site_visibility -->
-                        <a
-                            data-bind="
-                                attr: {
-                                    href: configure_url,
-                                    title: $t('Edit item'),
-                                    'aria-label': $t('Edit product in your shopping cart')
-                                }
-                            "
-                            class="
-                                button
-                                button--icon
-                                minicart-product__button
-                            "
-                            data-testid="edit-item-link"
-                        >
-                            <svg
-                                class="
-                                    icon
-                                    button__icon
-                                    minicart-product__button-icon
-                                "
-                                role="presentation"
-                                focusable="false"
-                            >
-                                <use
-                                    data-bind="attr: { 'href': require.toUrl('images/icons-sprite.svg#edit') }"
-                                    href=''
-                                ></use>
-                            </svg>
-                        </a>
-                    <!-- /ko -->
-
-                    <a
-                        href="#"
-                        data-bind="
-                            attr: {
-                                'data-cart-item': item_id,
-                                title: $t('Remove item'),
-                                'aria-label': $t('Remove this product from your shopping cart')
-                            }
-                        "
+                <!-- - jwc -->
+                <!-- ko ifnot: canApplyMsrp -->
+                    <div
                         class="
-                            button
-                            button--icon
-                            minicart-product__button
-                            action
-                            delete
+                            minicart-product__price
+                            margin-bottom-xs
                         "
-                        data-testid="delete-item-link"
                     >
-                        <svg
-                            class="
-                                icon
-                                button__icon
-                                minicart-product__button-icon
-                            "
-                            role="presentation"
-                            focusable="false"
-                        >
-                            <use
-                                data-bind="attr: {'href': require.toUrl('images/icons-sprite.svg#remove')}"
-                                href=''
-                            ></use>
-                        </svg>
-                    </a>
-                </div>
+                        <!-- ko foreach: $parent.getRegion('priceSidebar') -->
+                            <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
+                        <!-- /ko -->
+                    </div>
+                <!-- /ko -->
+                <!-- + jwc -->
             </div>
         </div>
     </div>

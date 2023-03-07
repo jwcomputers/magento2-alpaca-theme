@@ -10,6 +10,7 @@
         }'
     >
         <div class="product-view__summary">
+            <h2 class="heading heading--page"><?= $block->escapeHtml($_product->getName()) ?></h2> <!-- jwc -->
             <div class="product-view__summary-price">
                 <?= $block->getChildHtml() ?>
                 <span class="product-view__summary-unit">

@@ -1,6 +1,6 @@
 <div
     class="payment-option _collapsible opc-payment-additional discount-code"
-    data-bind="mageInit: {'collapsible':{'openedState': '_active'}}"
+    data-bind="mageInit: {'collapsible':{'active':true,'openedState':'_active'}}"
 >
     <div
         class="payment-option-title field choice discount-code__button"
@@ -42,17 +42,8 @@
             id="discount-form"
         >
             <div class="payment-option-inner">
-                <div class="input discount-code__input">
-                    <label
-                        class="
-                            label
-                            label--hidden
-                            input__label
-                        "
-                        for="discount-code"
-                    >
-                        <span data-bind="i18n: 'Enter discount code'"></span>
-                    </label>
+                <!-- - jwc -->
+                <div class="control input discount-code__input">
                     <input
                         class="input__field"
                         type="text"
@@ -67,7 +58,17 @@
                             }
                         "
                     />
+                    <label
+                        class="
+                            label
+                            input__label
+                        "
+                        for="discount-code"
+                    >
+                        <span data-bind="i18n: 'Enter discount code'"></span>
+                    </label>
                 </div>
+                <!-- + jwc -->
             </div>
             <div class="actions-toolbar">
                 <div class="primary">

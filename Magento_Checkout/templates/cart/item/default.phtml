@@ -36,15 +36,25 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                         link
                         cart-list-item__name
                         heading
+                        product-title-in-list
                     "
-                >
+                ><!-- jwc -->
                     <?= $block->escapeHtml($block->getProductName()) ?>
                 </a>
             <?php else: ?>
-                <h4 class="cart-list-item__name">
+                <h4 class="cart-list-item__name product-title-in-list"> <!-- jwc -->
                     <?= $block->escapeHtml($block->getProductName()) ?>
                 </h4>
             <?php endif; ?>
+
+            <?php
+                // - jwc
+                $additionalData = $this->getLayout()->createBlock("JWC\InventoryAvailability\Block\Cart\Item\AdditionalData");
+                $additionalData->setTemplate("JWC_InventoryAvailability::cart/item/additional-data.phtml");
+                $additionalData->setCurrentItem($product);
+                echo $additionalData->toHtml();
+                // + jwc
+            ?>
 
             <?php
             $addInfoBlock = $block->getProductAdditionalInformationBlock();

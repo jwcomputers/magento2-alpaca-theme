@@ -6,12 +6,13 @@
 // We should use strlen function because coupon code could be "0", converted to bool will lead to false
 $hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCode()) > 0;
 ?>
+<!-- jwc -->
 <div
     class="cart-discount"
     id="block-discount"
     data-mage-init='{
         "collapsible":{
-            "active": <?= $hasCouponCode ? 'true' : 'false' ?>,
+            "active": true,
             "openedState": "active",
             "saveState": false
         }
@@ -72,14 +73,8 @@ $hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCod
                     value="0"
                 >
 
-                <div class="input cart-discount__content-input">
-                    <label
-                        for="coupon_code"
-                        class="label label--hidden input__label"
-                    >
-                        <?= $block->escapeHtml(__('Enter discount code')) ?>
-                    </label>
-
+                <!-- - jwc -->
+                <div class="control input cart-discount__content-input">
                     <input
                         type="text"
                         class="input__field cart-discount__content-field"
@@ -91,7 +86,14 @@ $hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCod
                            disabled="disabled"
                         <?php endif; ?>
                     >
+                    <label
+                        for="coupon_code"
+                        class="label input__label"
+                    >
+                        <?= $block->escapeHtml(__('Enter discount code')) ?>
+                    </label>
                 </div>
+                <!-- + jwc -->
 
                 <?php if (!$hasCouponCode): ?>
                     <button

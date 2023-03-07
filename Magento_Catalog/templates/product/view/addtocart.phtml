@@ -19,6 +19,7 @@
             id="product-addtocart-button"
             aria-label="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
         >
+            <svg class="icon" role="presentation" focusable="false"><use data-bind="attr: {'href': require.toUrl('images/icons-sprite.svg#shopping-cart')}" href=""></use></svg> <!-- jwc -->
             <span class="button__text">
                 <?= $block->escapeHtml($buttonTitle) ?>
             </span>

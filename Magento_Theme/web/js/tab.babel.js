@@ -13,20 +13,27 @@ define([], function () {
 
       if (item.classList.contains('tab__title')) {
         item.addEventListener('click', () => {
-          allItems.forEach((item) => {
-            clean(item);
-            setActiveContent(item, tabTitle);
-          });
+          // - jwc
+          if (item.getAttribute('aria-expanded') === "true") {
+            allItems.forEach(itemContent => {
+              clean(itemContent, tabTitle);
+            });
+          } else {
+            allItems.forEach(itemContent => {
+              setActiveContent(itemContent, tabTitle);
+            });
+          }
+          // + jwc
         });
       }
     });
 
-    function clean(item) {
-      if (item.classList.contains('tab__content')) {
+    function clean(item, tabTitle) { // jwc
+      if (item.classList.contains('tab__content') && tabTitle === item.dataset.content) { // jwc
         item.classList.remove(activeContentClass);
         item.setAttribute('aria-hidden', true);
       }
-      else {
+      else if (tabTitle === item.dataset.tab) { // jwc
         item.classList.remove(activeTitleClass);
         item.setAttribute('aria-expanded', false);
         item.setAttribute('aria-selected', false);

@@ -4,7 +4,7 @@ define([], function () {
   class DropdownList {  // eslint-disable-line
     constructor(element) {
       this.element = element;
-      this.dropdownCollapseLabel = '.dropdown-list__item--collapse > .dropdown-list__label, .dropdown-list__item--collapse > .dropdown-list__label-wrapper > .dropdown-list__label';
+      this.dropdownCollapseLabel = '.dropdown-list__item--collapse > .dropdown-list__label, .dropdown-list__item--collapse > .dropdown-list__label-wrapper > .dropdown-list__label, .dropdown-list__item--collapse > .dropdown-list__wrapper-label'; // jwc
       this.dropdownItem = [...this.element.querySelectorAll(this.dropdownCollapseLabel)];
       this.contentClass = 'dropdown-list__content';
       this.mq = '(min-width: 768px)';

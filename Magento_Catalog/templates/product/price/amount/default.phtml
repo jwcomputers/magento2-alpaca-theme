@@ -20,7 +20,8 @@
         "
         aria-label="<?= $block->escapeHtmlAttr($block->getPriceType() . ' ' . $block->formatCurrency($block->getDisplayValue(), false))?>"
     >
-        <?= $block->escapeHtml($block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()), ['span']) ?>
+        <?php $tmpPriceHtml = explode('.', $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()), 2); ?> <!-- jwc -->
+        <?= $block->escapeHtml($tmpPriceHtml[0]."<sup>.{$tmpPriceHtml[1]}</sup>", ['span', 'sup']) ?> <!-- jwc -->
     </span>
     <?php if ($block->hasAdjustmentsHtml()): ?>
         <?= $block->getAdjustmentsHtml() ?>

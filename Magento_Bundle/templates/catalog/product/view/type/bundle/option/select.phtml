@@ -27,6 +27,7 @@ $viewModel = $block->getData('validateQuantityViewModel');
         <?= $block->escapeHtml($_optionTitle) ?>
     </label>
     <?php if ($block->showSingle()): ?>
+        <div class="bundle-option__select-single"> <!-- jwc -->
         <?= /* @noEscape */ $block->getSelectionTitlePrice($_selections[0]) ?>
         <?= /* @noEscape */ $block->getTierPriceRenderer()->renderTierPrice($_selections[0]) ?>
         <input
@@ -40,6 +41,7 @@ $viewModel = $block->getData('validateQuantityViewModel');
             name="bundle_option[<?= $block->escapeHtmlAttr($_optionId) ?>]"
             value="<?= $block->escapeHtmlAttr($_selections[0]->getSelectionId()) ?>"
         >
+        </div> <!-- jwc -->
     <?php else: ?>
         <div
             class="

@@ -10,7 +10,7 @@
             shipping-address__form-login
         "
         data-role="email-with-possible-login"
-        data-bind="submit:login"
+        data-bind="submit:login, attr: { 'hide-spacing': isPasswordVisible() == false ? 1 : 0 }"
         method="post"
     >
         <fieldset
@@ -33,21 +33,13 @@
                     required
                 "
             >
-                <label
-                    class="
-                        label
-                        input__label
-                    "
-                    for="customer-email"
-                >
-                    <span data-bind="i18n: 'Email Address'"></span>
-                </label>
                 <div
                     class="
                         control
                         _with-tooltip
                     "
                 >
+                    <!-- - jwc -->
                     <input
                         class="
                             input-text
@@ -66,18 +58,20 @@
                             'validate-email': true
                         }"
                         id="customer-email"
+                        placeholder=""
                         required
                     >
-                    <!-- ko template: 'ui/form/element/helper/tooltip' --><!-- /ko -->
-                    <span
+                    <label
                         class="
-                            margin-top-xs
-                            note
+                            label
+                            input__label
                         "
-                        data-bind="fadeVisible: isPasswordVisible() == false"
+                        for="customer-email"
                     >
-                        <!-- ko i18n: 'You can create an account after checkout.'--><!-- /ko -->
-                    </span>
+                        <span data-bind="i18n: 'Email Address'"></span>
+                    </label>
+                    <!-- ko template: 'ui/form/element/helper/tooltip' --><!-- /ko -->
+                    <!-- + jwc -->
                 </div>
             </div>
 
@@ -87,7 +81,7 @@
                     fieldset
                     hidden-fields
                 "
-                data-bind="fadeVisible: isPasswordVisible"
+                data-bind="fadeVisible: false"
             >
                 <div
                     class="

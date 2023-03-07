@@ -27,6 +27,7 @@
 <header class="header <?= $block->escapeHtmlAttr($headerClass) ?>">
     <div class="container">
         <div class="header__wrapper">
+            <?= $block->getChildHtml('header_wrapper') ?? ''?> <?php // jwc ?>
             <?= $block->getChildHtml('logo') ?>
 
             <?php if ($menuMainMobile): ?>
