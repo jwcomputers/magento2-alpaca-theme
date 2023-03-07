@@ -39,6 +39,7 @@
 
             <?php if ($wishListLink || $minicart || $cartLink): ?>
                 <div class="header__buttons">
+                    <?= $block->getChildHtml('additional_header_buttons') ?> <!-- jwc -->
                     <?php if ($wishListLink): ?>
                         <?= /* @noEscape */ $wishListLink ?>
                     <?php endif; ?>

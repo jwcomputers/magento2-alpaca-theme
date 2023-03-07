@@ -95,7 +95,7 @@ $urlForm = $block->getReviewsUrl() . '#review-form';
             </div>
         <?php endif; ?>
     </div>
-<?php elseif ($block->getDisplayIfEmpty()): ?>
+<?php elseif ($block->isReviewEnabled() && $block->getDisplayIfEmpty()): ?>
     <div class="review review--summary empty">
         <a
             href="<?= $block->escapeUrl($urlForm); ?>"

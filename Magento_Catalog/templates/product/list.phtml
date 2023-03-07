@@ -88,8 +88,8 @@ use Magento\Framework\App\Action\Action;
                     >
                         <?= $productImage->toHtml() ?>
 
-                        <?php if ($_product->getBadge()): ?>
-                            <?php $productBadges = $_product->getAttributeText('badge'); ?>
+                        <?php if (!empty($_product['auto_generated_badge'])): ?> <!-- jwc -->
+                            <?php $productBadges = explode('|', $_product['auto_generated_badge']); ?> <!-- jwc -->
                             <div
                                 class="
                                     badges
@@ -163,7 +163,7 @@ use Magento\Framework\App\Action\Action;
 
                         <div class="product-list-item__actions">
                             <?php
-                                $shippingLatencyText = $_product->getAttributeText('shipping_latency');
+                                $shippingLatencyText = ''; // jwc
                                 $isShownInStock = $shippingLatencyHelper->isShippingLatencyAllowed($_product);
                             ?>
                             <?php if ($isShownInStock || $shippingLatencyText): ?>
@@ -349,8 +349,8 @@ use Magento\Framework\App\Action\Action;
                         class="product-grid-item__link"
                         tabindex="-1"
                     >
-                        <?php if ($_product->getBadge()): ?>
-                            <?php $productBadges = $_product->getAttributeText('badge'); ?>
+                        <?php if (!empty($_product['auto_generated_badge'])): ?> <!-- jwc -->
+                            <?php $productBadges = explode('|', $_product['auto_generated_badge']); ?> <!-- jwc -->
                             <div
                                 class="
                                     badges

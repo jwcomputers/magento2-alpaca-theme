@@ -1,8 +1,8 @@
 <?php
 $product = $block->getProduct();
 ?>
-<?php if ($product->getBadge()): ?>
-    <?php $productBadges = $product->getAttributeText('badge'); ?>
+<?php if (!empty($product['auto_generated_badge'])): ?> <!-- jwc -->
+    <?php $productBadges = explode('|', $product['auto_generated_badge']); ?> <!-- jwc -->
     <div
         class="
             badges

@@ -98,19 +98,16 @@ use Magento\Framework\App\Action\Action;
                         product-item-info
                     "
                 >
-                    <a
-                        href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
-                        class="product-grid-item__link"
-                        tabindex="-1"
-                    >
-                        <?php if ($_item->getBadge()): ?>
-                            <?php $productBadges = $_item->getAttributeText('badge'); ?>
-                            <div
-                                class="
-                                    badges
-                                    product-grid-item__badges
-                                "
-                            >
+                    <!-- - jwc -->
+                    <?php if (!empty($_item['auto_generated_badge'])): ?>
+                        <?php $productBadges = explode('|', $_item['auto_generated_badge']); ?>
+                        <div
+                            class="
+                                badges
+                                product-grid-item__badges
+                            "
+                        >
+                            <div>
                                 <?php if (is_array($productBadges)): ?>
                                     <?php foreach ($productBadges as $productBadge): ?>
                                         <div
@@ -133,7 +130,14 @@ use Magento\Framework\App\Action\Action;
                                     </div>
                                 <?php endif ?>
                             </div>
-                        <?php endif ?>
+                        </div>
+                    <?php endif ?>
+                    <!-- + jwc -->
+                    <a
+                        href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
+                        class="product-grid-item__link"
+                        tabindex="-1"
+                    >
                         <div class="product-grid-item__image-wrapper">
                             <?= $block->getImage($_item, $image)->toHtml() ?>
                         </div>
@@ -153,15 +157,11 @@ use Magento\Framework\App\Action\Action;
                         <h3 class="product-grid-item__name">
                             <a
                                 href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>"
-                                class="product-grid-item__name-link"
+                                class="product-grid-item__name-link product-title-in-list"
                                 title="<?= $block->escapeHtmlAttr($_item->getName()) ?>"
                             >
                                 <?php
                                     $productName = $_item->getName();
-
-                                    if (strlen($productName) > 50) {
-                                        $productName = substr($productName, 0, 50) . '...';
-                                    }
                                 ?>
                                 <?= $block->escapeHtml($productName) ?>
                             </a>
@@ -303,6 +303,14 @@ use Magento\Framework\App\Action\Action;
                             <?php endif; ?>
                         </div>
                     </section>
+                    <!-- - jwc -->
+                    <?php
+                        $stockSummary = $this->getLayout()->createBlock("JWC\InventoryAvailability\Block\StockSummary");
+                        $stockSummary->setTemplate("JWC_InventoryAvailability::stock_summary.phtml");
+                        $stockSummary->setCurrentItem($_item);
+                    ?>
+                    <?=$stockSummary->toHtml()?>
+                    <!-- + jwc -->
                 </div>
             </div>
         <?php endforeach ?>

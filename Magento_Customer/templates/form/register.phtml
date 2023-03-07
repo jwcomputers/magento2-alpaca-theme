@@ -85,9 +85,8 @@ $formData = $block->getFormData();
                         class="
                             checkbox
                             account-form__newsletter-checkbox
-                            margin-bottom-m
                         "
-                    >
+                    > <!-- jwc -->
                         <input
                             type="checkbox"
                             id="is_subscribed"
@@ -337,6 +336,7 @@ $formData = $block->getFormData();
                 * <?= $escaper->escapeHtml(__('Required Fields')) ?>
             </div>
         </form>
+        <?= $block->getChildHtml('register_extras') ?> <!-- jwc -->
     </div>
 </div>
 

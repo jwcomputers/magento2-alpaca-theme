@@ -15,10 +15,11 @@
     $_category = $block->getCurrentCategory();
     $_imgHtml = '';
     $_imgUrl = $block->getImage()? $block->getImage()->getUrl($_category): null;
+    $imgSize = $categoryImageViewModel->get($_category); // jwc
 ?>
-<?php if ($_imgUrl): ?>
+<?php if ($_imgUrl && $imgSize): // jwc ?>
     <?php
-        $imgSize = $categoryImageViewModel->get($_category);
+        // $imgSize = $categoryImageViewModel->get($_category); // jwc
         $imgWidth = $imgSize['width'];
         $imgHeight = $imgSize['height'];
         $aspectRatio = $imgHeight && $imgWidth ? ($imgHeight / $imgWidth) * 100 : 0;

@@ -6,7 +6,7 @@
 <?php
 $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1);
 $cartActionContinue = false;
-$cartActionClear = false;
+$cartActionClear = true; // jwc
 $cartActionUpdate = true;
 ?>
 <?= $block->getChildHtml('form_before') ?>

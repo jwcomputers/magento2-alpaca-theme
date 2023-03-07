@@ -165,6 +165,7 @@
                 * <?= $block->escapeHtml(__('Required Fields')) ?>
             </div>
         </form>
+        <?= $block->getChildHtml('login_extras') ?> <!-- jwc -->
     </div>
     <div class="auth__links ">
         <a

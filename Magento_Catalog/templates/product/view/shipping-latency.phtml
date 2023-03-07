@@ -3,7 +3,7 @@
 $_product = $block->getProduct();
 /** @var \Snowdog\ShippingLatency\Helper\Data $shippingLatencyHelper */
 $shippingLatencyHelper = $this->helper('Snowdog\ShippingLatency\Helper\Data');
-$shippingLatencyText = $_product->getAttributeText('shipping_latency');
+$shippingLatencyText = ''; // jwc
 $isShownInStock = $shippingLatencyHelper->isShippingLatencyAllowed($_product);
 ?>
 
