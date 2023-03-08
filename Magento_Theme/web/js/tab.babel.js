@@ -13,27 +13,17 @@ define([], function () {
 
       if (item.classList.contains('tab__title')) {
         item.addEventListener('click', () => {
-          // - jwc
-          if (item.getAttribute('aria-expanded') === "true") {
-            allItems.forEach(itemContent => {
-              clean(itemContent, tabTitle);
-            });
-          } else {
-            allItems.forEach(itemContent => {
-              setActiveContent(itemContent, tabTitle);
-            });
-          }
-          // + jwc
+          // jwc
         });
       }
     });
 
-    function clean(item, tabTitle) { // jwc
-      if (item.classList.contains('tab__content') && tabTitle === item.dataset.content) { // jwc
+    function clean(item) {
+      if (item.classList.contains('tab__content')) {
         item.classList.remove(activeContentClass);
         item.setAttribute('aria-hidden', true);
       }
-      else if (tabTitle === item.dataset.tab) { // jwc
+      else {
         item.classList.remove(activeTitleClass);
         item.setAttribute('aria-expanded', false);
         item.setAttribute('aria-selected', false);
