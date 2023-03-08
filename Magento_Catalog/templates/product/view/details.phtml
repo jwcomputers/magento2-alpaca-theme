@@ -20,6 +20,7 @@
             data-aos="fade-down"
             data-aos-anchor="#tab-title-<?= /* @noEscape */ $tabId; ?>"
             data-aos-anchor-placement="bottom-top"
+            data-aos-offset="-500"
         >
             <div class="product-view__tabs-sticky">
                 <?php foreach ($detailedInfoGroup as $name):?>
@@ -32,11 +33,11 @@
                     $class = $block->getChildData($alias, 'class');
                     ?>
                     <a
-                        href="#tab-title-<?= /* @noEscape */ $tabId ?>"
+                        href="#tab-title-<?= /* @noEscape */ $tabId ?>-span"
                         data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
                         class="
                             tab__title
-                            <?= /* @noEscape */ ($tabId == 1) ? 'tab__title--active' : ''; ?>
+                            <?= /* @noEscape */ ($tabId) ? 'tab__title--active' : ''; ?>
                             tab__title--sticky
                             <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
                         "
@@ -66,18 +67,19 @@
                     $class = $block->getChildData($alias, 'class');
                 ?>
 
+                <span id="tab-title-<?= /* @noEscape */ $tabId; ?>-span" class="tab__title--span"></span>
                 <button
                     id="tab-title-<?= /* @noEscape */ $tabId; ?>"
                     class="
                         tab__title
-                        <?= /* @noEscape */ ($tabId == 1) ? 'tab__title--active' : ''; ?>
+                        <?= /* @noEscape */ ($tabId) ? 'tab__title--active' : ''; ?>
                         <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
                     "
                     data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
                     aria-controls="tab-<?=  /* @noEscape */$tabId; ?>"
                     data-testid="product-tab__title"
-                    aria-selected="<?= /* @noEscape */ ($tabId == 1) ? 'true' : 'false'; ?>"
-                    aria-expanded="<?= /* @noEscape */ ($tabId == 1) ? 'true' : 'false'; ?>"
+                    aria-selected="<?= /* @noEscape */ ($tabId) ? 'true' : 'false'; ?>"
+                    aria-expanded="<?= /* @noEscape */ ($tabId) ? 'true' : 'false'; ?>"
                     role="tab"
                 >
                     <?=  /* @noEscape */ $label; ?>
@@ -95,15 +97,15 @@
                     id="tab-<?= /* @noEscape */ $tabId; ?>"
                     class="
                         tab__content
-                        <?= /* @noEscape */ ($tabId == 1) ? 'tab__content--active' : ''; ?>
+                        <?= /* @noEscape */ ($tabId > 1) ? 'tab__content--show-preview' : ''; ?>
+                        <?= /* @noEscape */ ($tabId) ? 'tab__content--active' : ''; ?>
                         <?= /* @noEscape */ ($class) ? 'tab__content--' . $class : ''; ?>
                     "
                     data-content="tab-<?= /* @noEscape */ $tabId; ?>"
                     aria-labelledby="tab-title-<?= /* @noEscape */ $tabId; ?>"
-                    aria-hidden="<?= /* @noEscape */ ($tabId == 1) ? 'false' : 'true'; ?>"
+                    aria-hidden="<?= /* @noEscape */ ($tabId) ? 'false' : 'true'; ?>"
                     role="tabpanel"
                 >
-                    <?= $tabId == 1 ? $this->getLayout()->createBlock("Magento\Catalog\Block\Product\View\Description")->setTemplate("JWC_Theme::product/view/youtube-embed.phtml")->toHtml() : '' // jwc?>
                     <?= /* @noEscape */ $html; ?>
                 </div>
                 <?php $tabId++; ?>
