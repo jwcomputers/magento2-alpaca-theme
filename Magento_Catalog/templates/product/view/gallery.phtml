@@ -24,6 +24,7 @@ $imageWidth = $block->getImageAttribute('product_page_image_medium', 'width');
 $imageHeight = $block->getImageAttribute('product_page_image_medium', 'height');
 ?>
 
+<div class="<?=count($images) > 1 ? "has-multiple-images":"has-single-image" ?>"></div> <!-- jwc -->
 <div
     class="
         gallery-placeholder
