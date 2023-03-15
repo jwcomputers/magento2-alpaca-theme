@@ -31,6 +31,7 @@
                     }
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
+                    $labelMobile = $block->getChildData($alias, 'title-mobile'); // jwc
                     $class = $block->getChildData($alias, 'class');
                     ?>
                     <!-- jwc -->
@@ -43,7 +44,8 @@
                             <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
                         "
                     >
-                        <?= /* @noEscape */ $label ?>
+                        <span class="label-desktop"><?= /* @noEscape */ $label ?></span>
+                        <span class="label-mobile"><?= /* @noEscape */ $labelMobile ?? $label ?></span>
                     </a>
                     <?php $tabId++; ?>
                 <?php endforeach; ?>
