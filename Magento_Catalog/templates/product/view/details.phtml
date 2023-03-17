@@ -111,11 +111,10 @@
                     role="tabpanel"
                 >
                     <?= /* @noEscape */ $html; ?>
-                    <div class="show-more-section"><button class="show-more"><?= __("Show More") ?></button></div> <!-- jwc -->
                 </div>
                 <?php $tabId++; ?>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
 <?php endif; ?>
-<script type="text/x-magento-init">{"*": {"JWC_Theme/js/view/product/product-tab-show-more": {}}}</script> <!-- jwc -->
+<script type="text/x-magento-init">{"*": {"showMore": {}, "JWC_Theme/js/view/product/product-tab-show-more": {}}}</script> <!-- jwc -->
