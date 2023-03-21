@@ -37,7 +37,7 @@ define([
           const stickyTabs = $('.product-view__tabs-sticky-wrap');
           if (visible) {
             let msgWrapHeight = $('.messages__wrap').outerHeight();
-            stickyTabs.css('top', msgWrapHeight);
+            stickyTabs.css('top', 0); // jwc
           }
           else {
             stickyTabs.css('top', 0);
