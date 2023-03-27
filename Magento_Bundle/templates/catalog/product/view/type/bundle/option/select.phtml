@@ -67,7 +67,7 @@ $viewModel = $block->getData('validateQuantityViewModel');
                 data-mage-init='{"select": {}}'
             >
                  <option value="">
-                     <?= $block->escapeHtml(__('Choose a selection...')) ?>
+                     <?= $escaper->escapeHtml(__("No {$_optionTitle} selected")) ?> <!-- jwc -->
                 </option>
                 <?php foreach ($_selections as $_selection): ?>
                     <option
