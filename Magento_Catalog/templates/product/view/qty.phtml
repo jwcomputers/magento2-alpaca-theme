@@ -28,7 +28,7 @@ $stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')-
                     button--icon
                     quantity-update__button
                     quantity-update__button--minus
-                    stock-status--<?=$stockStatusCode?>
+                    stock-status-button--<?=$stockStatusCode?>
                 "
                 type="button"
                 aria-label="<?= $block->escapeHtmlAttr(__('Decrease the quantity')) ?>"
@@ -53,7 +53,7 @@ $stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')-
                 id="qty"
                 value="<?= $block->getProductDefaultQty() * 1 ?>"
                 title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
-                class="quantity-update__input stock-status--<?=$stockStatusCode?>"
+                class="quantity-update__input stock-status-input--<?=$stockStatusCode?>"
                 data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>"
             />
 
@@ -63,7 +63,7 @@ $stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')-
                     button--icon
                     quantity-update__button
                     quantity-update__button--plus
-                    stock-status--<?=$stockStatusCode?>
+                    stock-status-button--<?=$stockStatusCode?>
                 "
                 type="button"
                 aria-label="<?= $block->escapeHtmlAttr(__('Increase the quantity')) ?>"
