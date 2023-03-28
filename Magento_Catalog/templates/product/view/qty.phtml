@@ -1,6 +1,7 @@
 <?php
 $_product = $block->getProduct();
 $productId = $_product->getId();
+$stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')->setStoreId(0)->getFrontend()->getValue($_product); // jwc
 ?>
 
 <?php if ($block->shouldRenderQuantity() && $_product->isSaleable()): ?>
@@ -27,6 +28,7 @@ $productId = $_product->getId();
                     button--icon
                     quantity-update__button
                     quantity-update__button--minus
+                    stock-status--<?=$stockStatusCode?>
                 "
                 type="button"
                 aria-label="<?= $block->escapeHtmlAttr(__('Decrease the quantity')) ?>"
@@ -51,7 +53,7 @@ $productId = $_product->getId();
                 id="qty"
                 value="<?= $block->getProductDefaultQty() * 1 ?>"
                 title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
-                class="quantity-update__input"
+                class="quantity-update__input stock-status--<?=$stockStatusCode?>"
                 data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>"
             />
 
@@ -61,6 +63,7 @@ $productId = $_product->getId();
                     button--icon
                     quantity-update__button
                     quantity-update__button--plus
+                    stock-status--<?=$stockStatusCode?>
                 "
                 type="button"
                 aria-label="<?= $block->escapeHtmlAttr(__('Increase the quantity')) ?>"
