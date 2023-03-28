@@ -3,7 +3,11 @@
 ?>
 
 <?php $_product = $block->getProduct(); ?>
-<?php $buttonTitle = __('Add to Cart'); ?>
+<!-- - jwc -->
+<?php $stockStatusText = $_product->getResource()->getAttribute('stock_status_label')->setStoreId($_product->getStoreId())->getFrontend()->getValue($_product); ?>
+<?php $stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')->setStoreId(0)->getFrontend()->getValue($_product); ?>
+<?php $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : 'Add to Cart'); ?>
+<!-- + jwc -->
 
 <?php if ($_product->isSaleable()): ?>
         <button
@@ -15,6 +19,7 @@
                 button--add-to
                 action
                 tocart
+                stock_status_<?=$stockStatusCode?>
             "
             id="product-addtocart-button"
             aria-label="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
