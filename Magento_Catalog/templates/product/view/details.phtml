@@ -23,7 +23,7 @@
             data-aos-offset="-500"
         >
             <div class="product-view__tabs-sticky">
-                <a href="#" class="tab__title tab__title--sticky tab__title--product-top" data-tab="tab-0"><?=__("Product")?></a> <!-- jwc -->
+                <a href="javascript:void(0);" class="tab__title tab__title--sticky tab__title--product-top" data-tab="tab-0"><?=__("Product")?></a> <!-- jwc -->
                 <?php foreach ($detailedInfoGroup as $name):?>
                     <?php
                     if (!trim($layout->renderElement($name))) {
@@ -36,7 +36,7 @@
                     ?>
                     <!-- jwc -->
                     <a
-                        href="#tab-title-<?= /* @noEscape */ $tabId ?>-span"
+                        href="javascript:void(0);"
                         data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
                         class="
                             tab__title
@@ -117,4 +117,4 @@
         </div>
     <?php endif; ?>
 <?php endif; ?>
-<script type="text/x-magento-init">{"*": {"productTabsActiveOnScroll": {}, "JWC_Theme/js/view/product/product-tab-show-more": {}}}</script> <!-- jwc -->
+<script type="text/x-magento-init">{"*": {"productTabsActiveOnScroll": {}, "productTabsStickyOnClick": {}}}</script> <!-- jwc -->
