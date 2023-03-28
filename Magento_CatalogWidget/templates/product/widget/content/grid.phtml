@@ -84,6 +84,7 @@ use Magento\Framework\App\Action\Action;
         <?= $sliderBlockBefore->toHtml(); ?>
 
         <?php foreach ($items as $key => $_item): ?>
+            <?php $stockStatusCode = $_item->getResource()->getAttribute('stock_status_label')->setStoreId(0)->getFrontend()->getValue($_item); // jwc ?>
             <div
                 class="
                     product-item
@@ -262,6 +263,7 @@ use Magento\Framework\App\Action\Action;
                                                             button--add-to
                                                             action
                                                             tocart
+                                                            stock-status--<?=$stockStatusCode?>
                                                         "
                                                         type="submit"
                                                         aria-label="<?= $block->escapeHtmlAttr(__('Add to cart')) ?>"
