@@ -108,7 +108,7 @@
 </div>
 
 <script>
-    window.checkout = <?= \Zend_Json::encode($block->getConfig()) ?>;
+    window.checkout = <?= \Laminas\Json\Json::encode($block->getConfig()) ?>;
 </script>
 
 <script type="text/x-magento-init">
