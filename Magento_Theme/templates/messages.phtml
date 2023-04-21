@@ -8,9 +8,9 @@
 >
     <div>
         <div
-            data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible()"
+            data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible(), attr: { class: getModalClass() }"
             class="messages"
-        >
+        > <!-- jwc -->
             <div data-bind="
                     attr: {
                         class:
@@ -27,9 +27,9 @@
     </div>
     <div>
         <div
-            data-bind="foreach: { data: messages().messages, as: 'message' }, visible: isVisible()"
+            data-bind="foreach: { data: messages().messages, as: 'message' }, visible: isVisible(), attr: { class: getModalClass() }"
             class="messages"
-        >
+        > <!-- jwc -->
             <div data-bind="
                     attr: {
                         class:

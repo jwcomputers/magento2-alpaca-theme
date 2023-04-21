@@ -32,6 +32,12 @@ define([
         return this.visible((!_.isEmpty(this.messages().messages) || !_.isEmpty(this.cookieMessages)) && $(self.msgSelector).is(':visible'));
       },
 
+      // - jwc
+      getModalClass: function() {
+        return this.messages().messages.length ? 'messages modal modal--active' : '';
+      },
+      // + jwc
+
       onHiddenChange: function (visible) {
         if ($('body').hasClass('catalog-product-view')) {
           const stickyTabs = $('.product-view__tabs-sticky-wrap');
