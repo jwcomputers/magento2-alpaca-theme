@@ -8,10 +8,11 @@
 >
     <div>
         <div
-            data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible(), attr: { class: getModalClass() }"
+            data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible()"
             class="messages"
-        > <!-- jwc -->
+        >
             <div data-bind="
+                    visible: $parent.isMessageVisible(message.text), // jwc
                     attr: {
                         class:
                             'message '
@@ -27,10 +28,11 @@
     </div>
     <div>
         <div
-            data-bind="foreach: { data: messages().messages, as: 'message' }, visible: isVisible(), attr: { class: getModalClass() }"
+            data-bind="foreach: { data: messages().messages, as: 'message' }, visible: isVisible()"
             class="messages"
-        > <!-- jwc -->
+        >
             <div data-bind="
+                    visible: $parent.isMessageVisible(message.text), // jwc
                     attr: {
                         class:
                             'message '
