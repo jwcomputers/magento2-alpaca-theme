@@ -70,6 +70,8 @@ define([], function () {
       modal.trigger.setAttribute('aria-expanded', false);
       modal.el.classList.remove(modal.activeClass);
       modal.focused.focus();
+      
+      if (modal.el.id === "modal-minicart") document.querySelector(".page.messages.container").classList.remove('mini-cart-opened'); // jwc
       // - jwc: hijack back button - alpaca
       window.removeEventListener('popstate', window.runCloseModal);
       if (!window.modalBackClicked) {
