@@ -43,6 +43,7 @@
                 "
             >
                 <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                <!-- ko if: $parent.isMessageVisible(message.text) --><div id="messagesFBT" class="product-recs-wrapper" style="display:none;"></div><!-- /ko -->
             </div>
         </div>
     </div>
