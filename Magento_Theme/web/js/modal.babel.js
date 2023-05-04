@@ -53,6 +53,7 @@ define([], function () {
       modal.el.addEventListener('keydown', (e) => {
         this.trap(e, modal);
       });
+      if (modal.el.id === 'modal-minicart') document.querySelector('.page.messages.container').classList.add('mini-cart-opened'); // jwc
       // - jwc: hijack back button - alpaca
       window.runCloseModal = function () {
         window.modalBackClicked = true;

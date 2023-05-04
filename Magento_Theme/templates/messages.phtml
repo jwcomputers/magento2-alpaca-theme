@@ -7,6 +7,7 @@
     data-aos-anchor-placement="bottom-top"
 >
     <div>
+        <div id="messagesFBT" class="product-recs-wrapper message"></div> <!-- jwc -->
         <div
             data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible()"
             class="messages"
@@ -43,7 +44,6 @@
                 "
             >
                 <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
-                <!-- ko if: $parent.isMessageVisible(message.text) --><div id="messagesFBT" class="product-recs-wrapper" style="display:none;"></div><!-- /ko -->
             </div>
         </div>
     </div>
