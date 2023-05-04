@@ -43,7 +43,6 @@ define([], function () {
     }
 
     openModal(modal) {
-      document.body.classList.add("_has-modal"); // jwc
       modal.focused = document.activeElement;
       modal.el.setAttribute('aria-hidden', false);
       modal.trigger.setAttribute('aria-expanded', true);
@@ -53,32 +52,15 @@ define([], function () {
       modal.el.addEventListener('keydown', (e) => {
         this.trap(e, modal);
       });
-      if (modal.el.id === 'modal-minicart') document.querySelector('.page.messages.container').classList.add('mini-cart-opened'); // jwc
-      // - jwc: hijack back button - alpaca
-      window.runCloseModal = function () {
-        window.modalBackClicked = true;
-        this.closeModal(modal);
-      }.bind(this);
-      window.addEventListener('popstate', window.runCloseModal);
-      window.modalBackClicked = false;
-      history.pushState(null, null, document.URL);
-      // + jwc
+      modal.el.dispatchEvent(new Event('afterOpenModal')); // jwc
     }
 
     closeModal(modal) {
-      document.body.classList.remove("_has-modal"); // jwc
       modal.el.setAttribute('aria-hidden', true);
       modal.trigger.setAttribute('aria-expanded', false);
       modal.el.classList.remove(modal.activeClass);
       modal.focused.focus();
-      
-      if (modal.el.id === "modal-minicart") document.querySelector(".page.messages.container").classList.remove('mini-cart-opened'); // jwc
-      // - jwc: hijack back button - alpaca
-      window.removeEventListener('popstate', window.runCloseModal);
-      if (!window.modalBackClicked) {
-        history.back();
-      }
-      // + jwc
+      modal.el.dispatchEvent(new Event('afterCloseModal')); // jwc
     }
     setListeners(modalTrigger) {
       const modal = {};
