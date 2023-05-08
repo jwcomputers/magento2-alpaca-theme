@@ -7,7 +7,6 @@
     data-aos-anchor-placement="bottom-top"
 >
     <div>
-        <div id="messagesFBT" class="product-recs-wrapper message"></div> <!-- jwc -->
         <div
             data-bind="foreach: { data: cookieMessages, as: 'message' }, visible: isVisible()"
             class="messages"
@@ -47,6 +46,12 @@
             </div>
         </div>
     </div>
+    <!-- - jwc -->
+    <div class="messages-fbt-wrapper">
+        <div id="messagesFBT" class="product-recs-wrapper message"></div>
+        <div hidden class="algoliaRecommendCartSvg"><?= $block->escapeUrl($block->getViewFileUrl('images/icons-sprite.svg#shopping-cart')) ?></div>
+    </div>
+    <!-- + jwc -->
 </div>
 <script type="text/x-magento-init">
     {
