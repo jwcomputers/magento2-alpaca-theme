@@ -32,12 +32,14 @@
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
                     $labelMobile = $block->getChildData($alias, 'title-mobile'); // jwc
+                    $labelForData = str_replace(' ', '', strtolower($label)); // jwc
                     $class = $block->getChildData($alias, 'class');
                     ?>
                     <!-- jwc -->
                     <a
                         href="javascript:void(0);"
                         data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
+                        data-label="<?= /* @noEscape */ $labelForData?>"
                         class="
                             tab__title
                             tab__title--sticky
@@ -67,6 +69,7 @@
                     }
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
+                    $labelForData = str_replace(' ', '', strtolower($label)); // jwc
                     $class = $block->getChildData($alias, 'class');
                 ?>
 
@@ -80,7 +83,8 @@
                         <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
                     "
                     data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
-                    aria-controls="tab-<?=  /* @noEscape */$tabId; ?>"
+                    data-label="<?=  /* @noEscape */ $labelForData?>"
+                    aria-controls="tab-<?=  /* @noEscape */ $tabId; ?>"
                     data-testid="product-tab__title"
                     aria-selected="<?= /* @noEscape */ ($tabId) ? 'true' : 'false'; ?>"
                     aria-expanded="<?= /* @noEscape */ ($tabId) ? 'true' : 'false'; ?>"
@@ -106,6 +110,7 @@
                         <?= /* @noEscape */ ($class) ? 'tab__content--' . $class : ''; ?>
                     "
                     data-content="tab-<?= /* @noEscape */ $tabId; ?>"
+                    data-label="<?=  /* @noEscape */ $labelForData?>"
                     aria-labelledby="tab-title-<?= /* @noEscape */ $tabId; ?>"
                     aria-hidden="<?= /* @noEscape */ ($tabId) ? 'false' : 'true'; ?>"
                     role="tabpanel"
