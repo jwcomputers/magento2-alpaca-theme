@@ -44,6 +44,7 @@
                             tab__title
                             tab__title--sticky
                             <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
+                            <?= /* @noEscape */ ($class) ? 'tab__label--' . $labelForData : ''; // jwc ?>
                         "
                     >
                         <span class="label-desktop"><?= /* @noEscape */ $label ?></span>
@@ -81,6 +82,7 @@
                         tab__title
                         <?= /* @noEscape */ ($tabId) ? 'tab__title--active' : ''; ?>
                         <?= /* @noEscape */ ($class) ? 'tab__title--' . $class : ''; ?>
+                        <?= /* @noEscape */ ($class) ? 'tab__label--' . $labelForData : ''; // jwc ?>
                     "
                     data-tab="tab-<?= /* @noEscape */ $tabId; ?>"
                     data-label="<?=  /* @noEscape */ $labelForData?>"
@@ -108,6 +110,7 @@
                         tab__content
                         <?= /* @noEscape */ ($tabId) ? 'tab__content--active' : ''; ?>
                         <?= /* @noEscape */ ($class) ? 'tab__content--' . $class : ''; ?>
+                        <?= /* @noEscape */ ($class) ? 'tab__label--' . $labelForData : ''; // jwc ?>
                     "
                     data-content="tab-<?= /* @noEscape */ $tabId; ?>"
                     data-label="<?=  /* @noEscape */ $labelForData?>"
