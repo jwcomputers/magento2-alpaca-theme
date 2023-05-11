@@ -1,53 +1,55 @@
 <?php $_order = $block->getOrder() ?>
 
-<h2 class="heading dashboard__title">
-    <?= $block->escapeHtml(__('Order Information')) ?>
-</h2>
+<div class="block block-order-details-view"> <!-- jwc -->
+    <h2 class="heading dashboard__title block-title"> <!-- jwc -->
+        <?= $block->escapeHtml(__('Order Information')) ?>
+    </h2>
 
-<div class="row">
-    <?php if (!$_order->getIsVirtual()): ?>
+    <div class="row block-content"> <!-- jwc -->
+        <?php if (!$_order->getIsVirtual()): ?>
+            <div class="col-sm-3 information">
+                <h3 class="heading dashboard__subtitle">
+                    <?= $block->escapeHtml(__('Shipping Address')) ?>
+                </h3>
+
+                <address class="information__text">
+                    <?= /* @noEscape */ $block->getFormattedAddress($_order->getShippingAddress()) ?>
+                </address>
+            </div>
+
+            <div class="col-sm-3 information">
+                <h3 class="heading dashboard__subtitle">
+                    <?= $block->escapeHtml(__('Shipping Method')) ?>
+                </h3>
+
+                <div class="information__text">
+                    <?php if ($_order->getShippingDescription()): ?>
+                        <?= $block->escapeHtml($_order->getShippingDescription()) ?>
+                    <?php else: ?>
+                        <?= $block->escapeHtml(__('No shipping information available')); ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="col-sm-3 information">
             <h3 class="heading dashboard__subtitle">
-                <?= $block->escapeHtml(__('Shipping Address')) ?>
+                <?= $block->escapeHtml(__('Billing Address')) ?>
             </h3>
 
             <address class="information__text">
-                <?= /* @noEscape */ $block->getFormattedAddress($_order->getShippingAddress()) ?>
+                <?= /* @noEscape */ $block->getFormattedAddress($_order->getBillingAddress()) ?>
             </address>
         </div>
 
         <div class="col-sm-3 information">
             <h3 class="heading dashboard__subtitle">
-                <?= $block->escapeHtml(__('Shipping Method')) ?>
+                <?= $block->escapeHtml(__('Payment Method')) ?>
             </h3>
 
             <div class="information__text">
-                <?php if ($_order->getShippingDescription()): ?>
-                    <?= $block->escapeHtml($_order->getShippingDescription()) ?>
-                <?php else: ?>
-                    <?= $block->escapeHtml(__('No shipping information available')); ?>
-                <?php endif; ?>
+                <?= $block->getPaymentInfoHtml() ?>
             </div>
         </div>
-    <?php endif; ?>
-
-    <div class="col-sm-3 information">
-        <h3 class="heading dashboard__subtitle">
-            <?= $block->escapeHtml(__('Billing Address')) ?>
-        </h3>
-
-        <address class="information__text">
-            <?= /* @noEscape */ $block->getFormattedAddress($_order->getBillingAddress()) ?>
-        </address>
     </div>
-
-    <div class="col-sm-3 information">
-        <h3 class="heading dashboard__subtitle">
-            <?= $block->escapeHtml(__('Payment Method')) ?>
-        </h3>
-
-        <div class="information__text">
-            <?= $block->getPaymentInfoHtml() ?>
-        </div>
-    </div>
-</div>
+</div> <!-- jwc -->
