@@ -58,6 +58,7 @@ define([
             actions: {
               /** @inheritdoc */
               confirm: function () {
+                $(".messages__wrap .message--notice").remove(); // jwc
                 self._removeItem($(event.currentTarget));
               },
 
