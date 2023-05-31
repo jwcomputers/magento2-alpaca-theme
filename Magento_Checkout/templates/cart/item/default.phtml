@@ -119,13 +119,24 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                     <?= $block->escapeHtml(__('Price')) ?>:
                 </span>
 
+                <!-- - jwc -->
                 <span class="cart-list-item__price">
-                    <?php if ($canApplyMsrp): ?>
-                        --
-                    <?php else: ?>
-                        <?= $block->getUnitPriceHtml($_item); ?>
+                    <?php $basePrice = $_item->getProduct()->getPrice(); ?>
+                    <?php $isSpecial = floatval($_item->getPriceInclTax()) < floatval($basePrice); ?>
+                    <?php if ($isSpecial): ?>
+                        <span class="price__value price__value--old">
+                            <span class="price"><?=$block->convertPrice($basePrice, array('precision' => 0))?></span>
+                        </span>
                     <?php endif; ?>
+                    <span class="price__value <?=$isSpecial?'price__value--special':''?>">
+                        <?php if ($canApplyMsrp): ?>
+                            --
+                        <?php else: ?>
+                            <?= $block->getUnitPriceHtml($_item); ?>
+                        <?php endif; ?>
+                    </span>
                 </span>
+                <!-- + jwc -->
             </div>
 
             <div
