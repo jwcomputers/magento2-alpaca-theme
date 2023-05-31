@@ -33,6 +33,7 @@ define(['jquery', 'mage/translate'], function($, $t) {
           addToCartButton.prop('disabled', false);
           addToCartButton.find('span').text(addToCartButtonTextDefault);
           addToCartButton.prop('title', addToCartButtonTextDefault);
+          window.addToCartOnClickRevert(addToCartButton[0]); // jwc
         }, 1000);
       }
     });
