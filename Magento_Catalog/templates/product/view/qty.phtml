@@ -1,8 +1,8 @@
 <?php
 $_product = $block->getProduct();
 $productId = $_product->getId();
-$productDetails = $block->getProductAvailabilityDetails()->getShippingData($_product);
-$stockStatusCode = $productDetails->getAvailability();
+$productDetails = $block->getProductAvailabilityDetails()->getDetails($_product); // jwc
+$stockStatusCode = $productDetails->getAvailability(); // jwc
 ?>
 
 <?php if ($block->shouldRenderQuantity() && $_product->isSaleable()): ?>

@@ -15,7 +15,7 @@ if (strpos($block->getRequest()->getUriString(), 'checkout/cart')) {
 }
 
 // - jwc
-$productDetails = $block->getProductAvailabilityDetails()->getShippingData($_product);
+$productDetails = $block->getProductAvailabilityDetails()->getDetails($_product);
 $stockStatusText = $productDetails->getShortDescription();
 $stockStatusCode = $productDetails->getAvailability();
 $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : $buttonTitle);

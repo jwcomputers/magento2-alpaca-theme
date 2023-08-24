@@ -4,7 +4,7 @@
 
 <?php $_product = $block->getProduct(); ?>
 <!-- - jwc -->
-<?php $productDetails = $block->getProductAvailabilityDetails()->getShippingData($_product); ?>
+<?php $productDetails = $block->getProductAvailabilityDetails()->getDetails($_product); ?>
 <?php $stockStatusText = $productDetails->getShortDescription(); ?>
 <?php $stockStatusCode = $productDetails->getAvailability(); ?>
 <?php $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : 'Add to Cart'); ?>
