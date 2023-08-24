@@ -15,8 +15,9 @@ if (strpos($block->getRequest()->getUriString(), 'checkout/cart')) {
 }
 
 // - jwc
-$stockStatusText = $_product->getResource()->getAttribute('stock_status_label')->setStoreId($_product->getStoreId())->getFrontend()->getValue($_product);
-$stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')->setStoreId(0)->getFrontend()->getValue($_product);
+$productDetails = $block->getProductAvailabilityDetails()->getShippingData($_product);
+$stockStatusText = $productDetails->getShortDescription();
+$stockStatusCode = $productDetails->getAvailability();
 $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : $buttonTitle);
 //  jwc
 ?>

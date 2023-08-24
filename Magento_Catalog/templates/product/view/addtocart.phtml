@@ -4,8 +4,9 @@
 
 <?php $_product = $block->getProduct(); ?>
 <!-- - jwc -->
-<?php $stockStatusText = $_product->getResource()->getAttribute('stock_status_label')->setStoreId($_product->getStoreId())->getFrontend()->getValue($_product); ?>
-<?php $stockStatusCode = $_product->getResource()->getAttribute('stock_status_label')->setStoreId(0)->getFrontend()->getValue($_product); ?>
+<?php $productDetails = $block->getProductAvailabilityDetails()->getShippingData($_product); ?>
+<?php $stockStatusText = $productDetails->getShortDescription(); ?>
+<?php $stockStatusCode = $productDetails->getAvailability(); ?>
 <?php $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : 'Add to Cart'); ?>
 <!-- + jwc -->
 
