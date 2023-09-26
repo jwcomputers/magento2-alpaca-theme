@@ -103,9 +103,9 @@ $hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCod
                             cart-discount__content-button--apply
                         "
                         type="button"
-                        value="<?= $block->escapeHtmlAttr(__('Apply Discount')) ?>"
+                        value="<?= $block->escapeHtmlAttr(__('Apply')) ?>"
                     >
-                        <?= $block->escapeHtml(__('Apply Discount')) ?>
+                        <?= $block->escapeHtml(__('Apply')) ?>
                     </button>
                 <?php else: ?>
                     <button
@@ -115,9 +115,9 @@ $hasCouponCode = $block->getCouponCode() !== null && strlen($block->getCouponCod
                             cart-discount__content-button
                             cart-discount__content-button--cancel
                         "
-                        value="<?= $block->escapeHtmlAttr(__('Cancel Coupon')) ?>"
+                        value="<?= $block->escapeHtmlAttr(__('Cancel')) ?>"
                     >
-                        <?= $block->escapeHtml(__('Cancel Coupon')) ?>
+                        <?= $block->escapeHtml(__('Cancel')) ?>
                     </button>
                 <?php endif; ?>
             </div>
