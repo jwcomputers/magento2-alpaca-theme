@@ -41,6 +41,7 @@ $buttonTitle = __($stockStatusCode === 'pre-order' ? $stockStatusText : $buttonT
             <h2 class="heading heading--page">
                 <?= $block->escapeHtml($_product->getName()) ?>
             </h2>
+            <?= $block->getChildHtml('product.info.hide.price.sticky') ?> <!-- jwc -->
             <?= $block->getChildHtml('product.price.final.sticky') ?>
         </div>
 
