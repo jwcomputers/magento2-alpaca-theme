@@ -45,7 +45,7 @@
                 data-testid="submit-newsletter-button"
                 type="submit"
             >
-                <?= $block->escapeHtml(__('Subscribe')) // jwc ?>
+                <span class="newsletter__button-text"><?= $block->escapeHtml(__('Sign up to our Newsletter')) ?></span> <!-- jwc -->
             </button>
         </div>
         <?php if ($block->getChildHtml('newsletter-agreement')): ?>
