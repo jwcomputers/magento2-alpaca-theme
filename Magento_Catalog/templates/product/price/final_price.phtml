@@ -31,7 +31,7 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
                 'schema' => $schema
             ]); ?>
         </span>
-        <?=$this->getLayout()->createBlock("JWC\GenTweaks\Block\Product\SpecialPriceEndDate")->setTemplate("JWC_GenTweaks::product/view/specialprice-enddate.phtml")->toHtml()?> <!-- jwc -->
+        <?=$this->getLayout()->createBlock("JWC\ModsPrice\Block\Product\SpecialPrice")->setTemplate("JWC_ModsPrice::product/specialprice.phtml")->toHtml()?> <!-- jwc -->
     <?php else: ?>
         <span class="price__value">
             <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
