@@ -12,7 +12,7 @@
     "snowdog/module-product-attribute-description": "^1.2.0",
     "snowdog/module-shipping-latency": "^1.1.1",
     "snowdog/module-wishlist-unlocker": "^1.0.1",
-    "yireo/magento2-webp2": "^0.10.7"
+    "yireo/magento2-webp2": "^0.13.5"
   },
   "autoload": {
     "files": [
