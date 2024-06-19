@@ -1,25 +1,25 @@
-<script type="text/javascript">
-function addMarginForFooter() {
-  let addToCartSticky = document.querySelector('[data-aos-id="addtocart-sticky"]');
+<?= $secureRenderer->renderTag('script', ['type' => 'text/javascript'], '
+  function addMarginForFooter() {
+    let addToCartSticky = document.querySelector(\'[data-aos-id="addtocart-sticky"]\');
 
-  if (addToCartSticky) {
-    let footer = document.querySelector('footer');
-    footer.style.paddingBottom = addToCartSticky.offsetHeight + 'px';
+    if (addToCartSticky) {
+      let footer = document.querySelector("footer");
+      footer.style.paddingBottom = addToCartSticky.offsetHeight + "px";
+    }
   }
-}
 
-require([
-  'aos'
-], function(aos) {
-  aos.init();
-  addMarginForFooter();
-
-  window.addEventListener('resize', function () {
+  require([
+    "aos"
+  ], function(aos) {
+    aos.init();
     addMarginForFooter();
-  });
 
-  window.addEventListener('onload', function () {
-    addMarginForFooter();
+    window.addEventListener("resize", function () {
+      addMarginForFooter();
+    });
+
+    window.addEventListener("onload", function () {
+      addMarginForFooter();
+    });
   });
-});
-</script>
+', false); ?> <!-- jwc -->
