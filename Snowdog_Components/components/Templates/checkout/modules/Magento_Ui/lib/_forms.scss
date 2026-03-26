@@ -1,3 +1,4 @@
+@use 'sass:math';
 // sass-lint:disable-all
 
 //
@@ -404,7 +405,7 @@ $form-validation-note__color-error         : $error__color !default;
     $_type-block-label-align       : inherit,
 
     $_vertical-indent              : $indent__base,
-    $_additional-vertical-indent   : $indent__base / 2,
+    $_additional-vertical-indent   : $indent__base * 0.5,
 
     $_border                       : none,
     $_column                       : inherit,
@@ -589,7 +590,7 @@ $form-validation-note__color-error         : $error__color !default;
     $_type-inline-label-align  : right,
     $_type-inline-label-width  : 25.8%,
     $_type-inline-control-width: 74.2%,
-    $_vertical-indent          : $indent__base / 2,
+    $_vertical-indent          : $indent__base * 0.5,
 
     $_type-block-margin        : $indent__base,
     $_type-block-label-margin  : 0 0 $indent__xs,
@@ -746,7 +747,7 @@ $form-validation-note__color-error         : $error__color !default;
     $_type-block-label-padding : inherit,
     $_type-block-label-align   : inherit,
 
-    $_vertical-indent          : $indent__base / 2
+    $_vertical-indent          : $indent__base * 0.5
 ) {
     @if $_type == "block" {
         &:not(.choice) {
@@ -821,7 +822,7 @@ $form-validation-note__color-error         : $error__color !default;
 @mixin lib-form-field-column-number(
     $_column-number: 2
 ) {
-    width: 100% / $_column-number;
+    width: math.div(100%, $_column-number);
 }
 
 @mixin _lib-revert-type-block-label-padding($_type-block-label-padding) {

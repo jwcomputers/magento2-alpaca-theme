@@ -25,8 +25,8 @@ $product-list-item__badges-bottom\@medium                 : $spacer--large !defa
 
 $product-list-item__name-font-size                        : $font-size-base !default;
 $product-list-item__name-font-size\@medium                : $font-size-medium !default;
-$product-list-item__name-margin                           : ($spacer / 2) 0 !default;
-$product-list-item__name-margin\@medium                   : $spacer 0 ($spacer / 2) !default;
+$product-list-item__name-margin                           : ($spacer * 0.5) 0 !default;
+$product-list-item__name-margin\@medium                   : $spacer 0 ($spacer * 0.5) !default;
 $product-list-item__name-text-transform                   : none !default;
 $product-list-item__name-decoration                       : none !default;
 $product-list-item__name-decoration-hover                 : none !default;

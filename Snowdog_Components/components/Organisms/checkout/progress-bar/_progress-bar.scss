@@ -75,7 +75,7 @@ $checkout-progress-bar-item-element-inner__height             : $checkout-progre
             &:before {
                 content: '';
                 position: absolute;
-                top: $checkout-progress-bar-item-element__size / 2;
+                top: $checkout-progress-bar-item-element__size * 0.5;
                 left: $progress-bar__item-left--before;
                 background: $progress-bar__item-background--before;
                 height: $progress-bar__item-height--before;
@@ -150,7 +150,7 @@ $checkout-progress-bar-item-element-inner__height             : $checkout-progre
                 left: $progress-bar__line-left--before;
                 background: $progress-bar__line-background--before;
                 height: $checkout-progress-bar-item-element__size;
-                margin-left: -($checkout-progress-bar-item-element__size / 2);
+                margin-left: -($checkout-progress-bar-item-element__size * 0.5);
                 width: $checkout-progress-bar-item-element__size;
                 border-radius: $progress-bar__line-border-radius--before;
             }
@@ -161,7 +161,7 @@ $checkout-progress-bar-item-element-inner__height             : $checkout-progre
                 justify-content: center;
                 background: $progress-bar__line-background--after;
                 height: $checkout-progress-bar-item-element-inner__height;
-                margin-left: (-$checkout-progress-bar-item-element-inner__width / 2);
+                margin-left: (-$checkout-progress-bar-item-element-inner__width * 0.5);
                 top: $checkout-progress-bar-item-element-outer-radius__width;
                 width: $checkout-progress-bar-item-element-inner__width;
                 content: counter(i);

@@ -84,7 +84,7 @@ $modal-margin                         : 20px !default;
     }
 
     .page-main-actions {
-        margin-bottom: $modal-slide-header__padding-vertical - ($modal-popup__padding / 2);
+        margin-bottom: $modal-slide-header__padding-vertical - ($modal-popup__padding * 0.5);
         margin-top: $modal-slide-header__padding-vertical;
     }
 }

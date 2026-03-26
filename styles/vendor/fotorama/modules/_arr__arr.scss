@@ -6,7 +6,7 @@
         @include fotorama-abs-center();
 
         .ie9 & {
-            margin: (-$fotorama__block-size / 2) 0 0 (-$fotorama__block-size / 2);
+            margin: ($fotorama__block-size * -0.5) 0 0 ($fotorama__block-size * -0.5);
         }
     }
 

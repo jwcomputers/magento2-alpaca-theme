@@ -194,8 +194,8 @@ body {
     .modal-content,
     .modal-footer,
     .modal-header {
-        padding-left: $modal-popup__padding / 2;
-        padding-right: $modal-popup__padding / 2;
+        padding-left: $modal-popup__padding * 0.5;
+        padding-right: $modal-popup__padding * 0.5;
 
         @include mq($screen-m) {
             padding-left: $modal-popup__padding;
