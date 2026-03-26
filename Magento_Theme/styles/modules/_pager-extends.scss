@@ -4,7 +4,7 @@
             .goTo {
                 &.yotpo-active {
                     &:after {
-                        @extend .pager__item--current:after;
+                        @extend .pager__item--current, :after;
                     }
                 }
             }

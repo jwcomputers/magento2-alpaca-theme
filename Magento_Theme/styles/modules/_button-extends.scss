@@ -78,7 +78,7 @@ div {
         .amlocator-search-container .amlocator-button.-nearby {
             &:disabled,
             &[disabled] {
-                @extend .button:disabled;
+                @extend .button, :disabled;
             }
         }
     }
@@ -89,7 +89,7 @@ div {
         &.selected-item,
         &.selected {
             .action-select-shipping-item {
-                @extend .button:disabled;
+                @extend .button, :disabled;
             }
         }
     }
@@ -101,11 +101,11 @@ div {
             .yotpo-pager {
                 .yotpo-icon {
                     &:before {
-                        @extend .button:before;
+                        @extend .button, :before;
                     }
 
                     &:after {
-                        @extend .button:after;
+                        @extend .button, :after;
                     }
                 }
             }

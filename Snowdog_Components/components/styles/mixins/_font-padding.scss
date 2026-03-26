@@ -9,7 +9,7 @@
     $vertical: $height - round($font-size * $line-height);
 
     @if $vertical > 0 {
-        $vertical: $vertical / 2;
+        $vertical: $vertical * 0.5;
     }
     @else {
         $vertical: 0;
