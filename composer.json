@@ -1,5 +1,6 @@
 {
   "name": "jwc/theme-frontend-alpaca",
+  "version": "1.0.4",
   "description": "Alpaca frontend theme for Magento 2",
   "license": "MIT",
   "type": "magento2-theme",
